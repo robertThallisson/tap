@@ -141,13 +141,23 @@ public class FrequenciaBS {
 		return aluno;
 	}
 
-	public void registar(String digital) {
+	public void registar(String digital) throws Exception {
 		// TODO Auto-generated method stub
-		Aluno aluno = ar.findByDigitaisNome(digital);
-		Frequencia frequencia = new Frequencia();
-		frequencia.setAluno(aluno);
-		frequencia.setRegistro(LocalDateTime.now());
-		fr.save(frequencia);
+		try {
+			Aluno aluno = ar.findByDigitaisNome(digital);
+
+			if (aluno == null) {
+				throw new Exception();
+			}
+
+			Frequencia frequencia = new Frequencia();
+			frequencia.setAluno(aluno);
+			frequencia.setRegistro(LocalDateTime.now());
+			fr.save(frequencia);
+		} catch (Exception e) {
+			// TODO: handle exception
+			throw new Exception();
+		}
 	}
 
 	public LocalTime getPrimeira() {

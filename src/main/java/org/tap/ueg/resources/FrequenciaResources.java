@@ -22,7 +22,8 @@ import org.tap.ueg.models.auxi.Registro;
 @RequestMapping("/frequencia")
 public class FrequenciaResources {
 	@Autowired
-	private FrequenciaController controller ;
+	private FrequenciaController controller;
+
 	@GetMapping(produces = "application/json")
 	public @ResponseBody Aluno listas() {
 		try {
@@ -50,9 +51,9 @@ public class FrequenciaResources {
 	@GetMapping(value = "/listar/{data}", produces = "application/json")
 	public @ResponseBody Iterable<Aluno> listaEventos(@PathVariable String date) {
 		try {
-			List<Registro> registro = controller.findRegistroByData(date);
+			//List<Registro> registro = controller.findRegistroByData(date);
 			return new ArrayList<Aluno>();
-			//return registro;
+			// return registro;
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
@@ -81,11 +82,10 @@ public class FrequenciaResources {
 
 		try {
 			/*
-			Aluno aluno = ar.findByDigitaisNome(digital.getNome());
-			Frequencia frequencia = new Frequencia();
-			frequencia.setAluno(aluno);
-			frequencia.setRegistro(LocalDateTime.now());
-			fr.save(frequencia);*/
+			 * Aluno aluno = ar.findByDigitaisNome(digital.getNome()); Frequencia frequencia
+			 * = new Frequencia(); frequencia.setAluno(aluno);
+			 * frequencia.setRegistro(LocalDateTime.now()); fr.save(frequencia);
+			 */
 			return 1;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -99,10 +99,8 @@ public class FrequenciaResources {
 	public @ResponseBody int registrarByData(@PathVariable String digital) {
 
 		try {
-		
-			
-			controller.registar(digital);
-			return 1;
+
+			return controller.registar(digital);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());

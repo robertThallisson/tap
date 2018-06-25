@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
@@ -27,6 +29,7 @@ public class Digital implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="aluno_id")
 	@JsonBackReference
+	@NotEmpty
 	private Aluno aluno;
 
 	public long getId() {

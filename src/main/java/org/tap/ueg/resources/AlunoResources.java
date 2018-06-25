@@ -107,9 +107,9 @@ public class AlunoResources {
 			//digital.setAluno(ar.findByMatricula(digital.getAluno().getMatricula()));
 			//dr.save(digital);]
 			
-			alunoController.registrarDigitalByString(matricula);
+			return alunoController.registrarDigitalByString(matricula);
 			
-			return 1;
+			
 		}catch (Exception e) {
 			// TODO: handle exception
 			return 0;

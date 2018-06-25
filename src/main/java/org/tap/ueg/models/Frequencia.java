@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -27,13 +28,15 @@ public class Frequencia implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private long id;
 	
+	//@Type(type="com.hibernate.samples.type.LocalDateTimeUserType")
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-	//@Temporal(TemporalType.DATE)
-	 private LocalDateTime registro;
+	//@Column( columnDefinition = "date")
+	private LocalDateTime registro;
 	
 	@ManyToOne
 	@JoinColumn(name="aluno_id")
 	@JsonBackReference
+	@NotEmpty
 	private Aluno aluno;
 	@OneToOne
 	private Equipamento equipamento;

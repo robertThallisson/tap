@@ -28,6 +28,11 @@ public class AlunoBS {
 //			// frequencia.setHora(new Date());
 //			fr.save(frequencia);
 			dr.save(digital);
+			
+			if(digital.getId() == 0) {
+				throw new Exception();
+				
+			}
 			return 1;
 		} catch (Exception e) {
 			// TODO: handle exception
